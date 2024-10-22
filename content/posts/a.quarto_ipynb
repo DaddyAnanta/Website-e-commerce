@@ -1,0 +1,27 @@
+{
+  "cells": [
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import plotly.express as px\n",
+        "df = px.data.iris()\n",
+        "fig = px.scatter(df, x=\"sepal_width\", y=\"sepal_length\", color=\"species\")\n",
+        "fig.show()"
+      ],
+      "id": "31c1957c",
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "myproject",
+      "language": "python",
+      "display_name": "Python (myproject)",
+      "path": "/home/master/.local/share/jupyter/kernels/myproject"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}
