@@ -5,20 +5,8 @@ on:
     branches: ["main"]
   workflow_dispatch:
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
 jobs:
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
 
     steps:
@@ -30,8 +18,12 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y hugo
 
+      - name: List directory contents
+        run: |
+          ls -la  # Melihat isi direktori root
+
       - name: Build the site
-        run: hugo --minify
+        run: hugo --minify  # Tidak perlu cd jika di root
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -39,7 +31,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './public'  # Ganti dengan folder proyek Hugo Anda
+          path: './public'  # Pastikan ini sesuai dengan output build Hugo
 
       - name: Deploy to GitHub Pages
         id: deployment
