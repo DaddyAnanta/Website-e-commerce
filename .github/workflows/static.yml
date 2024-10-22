@@ -31,9 +31,7 @@ jobs:
           sudo apt-get install -y hugo
 
       - name: Build the site
-        run: 
-          
-          hugo --minify
+  run: hugo --minify
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
