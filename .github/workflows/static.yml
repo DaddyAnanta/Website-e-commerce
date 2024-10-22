@@ -23,7 +23,7 @@ jobs:
           ls -la  # Melihat isi direktori root
 
       - name: Build the site
-        run: hugo --minify  # Tidak perlu cd jika di root
+        run: hugo  # Tidak perlu cd jika di root
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
