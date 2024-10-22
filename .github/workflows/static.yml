@@ -23,8 +23,10 @@ jobs:
           ls -la  # Melihat isi direktori root
 
       - name: Build the site
-        run: hugo  # Tidak perlu cd jika di root
-
+        run: |
+          cd ./Website-e-commerce  # Ganti dengan folder proyek Hugo Anda
+          hugo 
+          
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
